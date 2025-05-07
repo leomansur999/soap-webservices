@@ -10,7 +10,9 @@ public class VinhicolaClient {
         QName qName = new QName("http://vinhicola/", "VinhicolaServerImplService");
         Service ws = Service.create(url, qName);
         VinhicolaServer vinhicolaServer = ws.getPort(VinhicolaServer.class);
-        System.out.print("Produto Cadastrado: " + vinhicolaServer.cadastrarVinho(1L, "Vinho Teste", 70.00F));
-        System.out.print("Produto Pesquisado: " + vinhicolaServer.pesquisarPreco("Vinho1"));
+        Vinho vinho = vinhicolaServer.cadastrarVinho(1L, "Vinho Teste", 70.00F);
+        Vinho vinho1 = vinhicolaServer.pesquisarPreco("Vinho1");
+        System.out.print("Produto Cadastrado: " + vinho.getNome());
+        System.out.print("Produto Pesquisado: " + vinho1.getPreco());
     }
 }
